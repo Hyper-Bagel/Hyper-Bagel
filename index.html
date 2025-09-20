@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+      </div>
+      <div class="container has-text-centered">
+        <h1 class="title is-1 publication-title">
+          Hyper-Bagel: 
+        </h1>
+        <h3 class="title is-3 publication-title">
+          A Unified Acceleration Framework for Multimodal Understanding and Generation
+        </h3>
+        <div class="is-size-5 publication-authors">
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=C_6JH-IAAAAJ&hl=zh-CN&oi=ao">Yanzuo Lu</a>*, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=JP14UGgAAAAJ&hl=zh-CN&oi=ao">Xin Xia</a>*, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=7YqvlBoAAAAJ&hl=zh-CN&oi=ao">Manlin Zhang</a>*, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=QmdyVQ0AAAAJ&hl=en">Huafeng Kuang</a>,</div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=MxvLqLcAAAAJ&hl=zh-CN&oi=ao">Jianbin Zheng</a>,</div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=Z-0EqtgAAAAJ">Yuxi Ren</a>,</div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=CVkM9TQAAAAJ">Xuefeng Xiao</a>&#x2020 </div>
+
+
+                  
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">ByteDance Seed</span><br>
+          <span class="author-block"><sup>*</sup>&nbsp&nbsp<sup></sup>Equal contribution</span>
+          <span class="author-block"><sup>&#x2020</sup>&nbsp&nbsp<sup></sup>Project Lead</span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+          
+            <!-- arxiv link -->
+            <span class="link-block">
+              <a href="https://arxiv.org"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/images/t2i_vis.png">
+              <img width="100%" src="static/images/t2i_vis.png" />
+          </a>
+        </figure>
+        
+      </h2 >
+      Image generation samples produced by our 6-NFE accelerated BAGEL model.
+    </div>
+
+        <div class="container is-max-desktop">
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/images/hyper-bagel-edit-vis.jpeg">
+              <img width="100%" src="static/images/hyper-bagel-edit-vis.jpeg" />
+          </a>
+        </figure>
+        
+      </h2 >
+      Image editing samples produced by our 6-NFE accelerated BAGEL model.
+    </div>
+    
+  </div>
+ 
+</div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+        <h2 class="title is-2, columns is-centered">Abstract</h2>
+      <br>
+      
+    </div>
+  </div>
+ 
+    
+  <p class="content has-text-justified">
+    
+Unified multimodal models have recently attracted considerable attention for their remarkable abilities in jointly understanding and generating diverse content. 
+However, as contexts integrate increasingly numerous interleaved multimodal tokens, the iterative processes of diffusion denoising and autoregressive decoding impose significant computational overhead. 
+To address this, we propose <b>Hyper-Bagel</b> , a unified acceleration framework designed to simultaneously speed up both multimodal understanding and generation tasks. 
+Our approach uses a divide-and-conquer strategy, employing speculative decoding for next-token prediction and a multi-stage distillation process for diffusion denoising. 
+The framework delivers substantial performance gains, achieving over a 2x speedup in multimodal understanding. 
+For generative tasks, our resulting lossless 6-NFE model yields a 16.67x speedup in text-to-image generation and a 22x speedup in image editing, all while preserving the high-quality output of the original model. 
+We further develop a highly efficient 1-NFE model that enables near real-time interactive editing and generation. 
+By combining advanced adversarial distillation with human feedback learning, this model achieves ultimate cost-effectiveness and responsiveness, making complex multimodal interactions seamless and instantaneous.
+
+
+
+   </p>
+</div>
+</section>
+
+
+<section class="section hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+        <h2 class="title is-2, columns is-centered">Speculative Decoding Pipeline</h2>
+      <br>
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/figures/overview.png">
+              <img width="100%" src="static/images/hyper-bagel_sd.png" />
+          </a>
+        </figure>
+      </h2>
+    </div>
+  </div>
+  <p>
+    Training pipeline for our proposed speculative decoding approach in Hyper-Bagel.
+   </p>
+
+     <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+        <h2 class="title is-2, columns is-centered">Distillation Pipeline</h2>
+      <br>
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/figures/overview.png">
+              <img width="100%" src="static/images/hyper-bagel-distill.png" />
+          </a>
+        </figure>
+      </h2>
+    </div>
+  </div>
+  <p>
+     Training pipeline for our proposed Distribution Matching Distillation via ODE (DMDO)
+   </p>
+</div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Experiment</h2>
+
+        <div class="content has-text-justified">
+          <img src="static/images/hyper-bagel_GEdit.png" />
+        </div>
+        <p class="content has-text-justified">
+        Quantitative results on GEdit-Bench. The baseline is 132-NFE because it uses a CFG interval of [0.4, 1.0], where text and image CFG are simultaneously enabled only at timesteps within this interval. 
+          * Results are cited from those reported in the BAGEL paper. &#x2020  We reproduce these results under the same training environment.
+        </p>
+       
+                <div class="content has-text-justified">
+          <img src="static/images/hyper-bagel_GenEval.png" />
+        </div>
+        <p class="content has-text-justified">
+          Quantitative results on GenEval. * Results are cited from those reported in the BAGEL paper. &#x2020 We reproduce these results under the same training environment.
+          
+        </p>
+       
+
+        <div class="content has-text-justified">
+          <img src="static/images/t2i_diff_nfe.png" />
+        </div>
+        <p class="content has-text-justified">
+          Qualitative comparison of different accelerated models against the baseline on image generation.
+        </p>
+
+        <div class="content has-text-justified">
+          <img src="static/images/hyper-bagel-edit_nfe.jpeg" />
+        </div>
+
+        <p class="content has-text-justified">
+         Qualitative comparison of different accelerated models against the baseline on image editing.
+        </p>
+
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{lu2025hyperbagel,
+      title={Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation}, 
+      author={Yanzuo Lu and Xin Xia and Manlin Zhang and Huafeng Kuang and Jianbin Zheng and Yuxi Ren and Xuefeng Xiao},
+      year={2025},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2401.04468.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content">
+          <p>
+             The source code of this webpage is based on the <a href="https://github.com/nerfies/nerfies.github.io/"> Nerfies</a> project webpage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="./static/slick/slick.min.js"></script>
+</body>
+</html>
